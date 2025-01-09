@@ -2,24 +2,28 @@
     box-sizing: border-box;
 }
 
+h1, h2, h3 {
+    font-family: 'New Rocker', serif;
+}
+
 body,
 html {
-    height: 100%;
-    margin: 0;
-    padding: 0; 
-    font-family: Trebuchet MS, Helvetica, sans-serif;
-    line-height: 1.6;
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-    background-image: url("https://images.pexels.com/photos/5485040/pexels-photo-5485040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    height: 100%;
+    margin: 0;
+    padding: 0; 
+    font-family:'Lato', sans-serif;
+    line-height: 1.6;
+    background-image: url("musikfestivalen_bakgrund.webp");
     background-repeat: repeat;
     background-size: cover;
 }
 
 header,
 footer {
-    background-color:#0e38c4;
+    background-color: #000000;
     padding: 1rem;
     text-align: center;
 }
@@ -32,6 +36,10 @@ footer {
     align-items: center;
 }
 
+.logo {
+    color: #fffff7;
+}
+
 .nav-link-container {
     display: flex;
     align-items: center;
@@ -41,7 +49,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem; 
+    gap: 1rem;
 }
 
 .nav-links,
@@ -54,18 +62,68 @@ footer {
 .nav-links a, 
 .footer-links a {
     text-decoration: none; 
-    color: #15b830;
+    color: #fcd3f7;
 }
 
 main {
     display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px;
+    text-align: center;
     gap: 3rem;
     margin: 2rem; 
     margin-top: 2rem;
 }
 
+.about-header {
+    background-color: rgba(24, 0, 0, 0.5);
+    font-size: 1rem;
+    color:rgb(255, 255, 255);
+    padding: 3rem;
+    margin: 1rem;
+    text-align: center; 
+    border-radius: 8px;
+    margin-bottom: 5rem;
+    text-align: left;
+}
+
+.about-heading {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fdffff;
+}
+
+.concert-heading {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.important-information {
+    font-size: 1rem;
+    text-align: center;
+}
+
+#postsContainer {
+    grid-template-columns: repeat(2, 1fr); 
+}
+
 .post {
-    background-color:#0e38c4;
+    flex: 1 0 45%;
+    color:#ffffff;
+    background-image: url("post-background.jpeg");
+    margin-bottom: 3rem;
+    padding: 3rem;
+    text-align: left;
+    border-radius: 8px;
+}
+
+.fetchingError {
+    color: red;
 }
 
 .contact-container {
@@ -74,30 +132,64 @@ main {
     align-items: center;
 }
 
-.fetchingError {
- color: red;
+.contact-header {
+    color: #e7fdff;
 }
 
+.copyright_notice {
+    color: #e7fdff;
+}
 
 /* DESKTOP STYLES */
 @media (min-width: 768px) {
+
     .navbar {
          flex-direction: row;
          justify-content: space-between;
          align-items: center;
     }
     
-    .nav-links {
-         display: flex;
-         flex-direction: row;
-         gap: 1rem;
+    .about-header {
+        font-size: 1.3rem;
+        max-width: 900px;
+        margin: 0 auto;
+        gap: 20px;  
+        text-align: left;
     }
     
+    .important-information {
+        font-size: 1.3rem;
+    }
+
+    #postsContainer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px; 
+        gap: 20px;  
+    }
+      
+    .post {
+        flex: 1 0 30%;
+    }
+    
+    .post:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    footer {
+        flex-direction: row-reverse;
+    }
+
     .contact-header {
          margin-bottom: 0;
      }
 
-     footer {
-         flex-direction: row-reverse;
+     .nav-links {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
     }
-} 
+}

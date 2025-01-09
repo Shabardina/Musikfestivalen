@@ -47,30 +47,29 @@ const fetchData = async () => {
     }
 
     const postsHTML = data.items
-      .map((post) => {
-        const genreId = post.fields.genre?.sys?.id;
-        const stageId = post.fields.stage?.sys?.id;
-        const dayId = post.fields.day?.sys?.id;
 
-        const artistName = post.fields.name || "Unknown Artist";
-        const artistDescription = post.fields.description || "No description available";
-        const genreName = genreMap[genreId] || "Unknown genre";
-        const stageName = stageMap[stageId] || "Unknown stage";
-        const dayName = dayMap[dayId] || "Unknown day";
-        const exactDate = dateMap[dayId] || "Unknown date";
+    .map((post) => {
+      const genreId = post.fields.genre?.sys?.id;
+      const stageId = post.fields.stage?.sys?.id;
+      const dayId = post.fields.day?.sys?.id;
 
-        // Removing time from date value to reduce clutter
-        let simplifiedDate = exactDate.replace(/\T.*/,"");
+      const artistName = post.fields.name || "Unknown Artist";
+      const genreName = genreMap[genreId] || "Unknown genre";
+      const stageName = stageMap[stageId] || "Unknown stage";
+      const dayName = dayMap[dayId] || "Unknown day";
+      const exactDate = dateMap[dayId] || "Unknown date";
 
-        return `<div class="post">
-                  <h2>${artistName}</h2>
-                  <p>${artistDescription}</p>
-                  <p>Genre: ${genreName}</p>
-                  <p>Stage: ${stageName}</p>
-                  <p>Date: ${simplifiedDate} (${dayName})</p>
-                </div>`;
-      })
-      .join("");
+      // Removing time from date value to reduce clutter
+      let simplifiedDate = exactDate.replace(/\T.*/,"");
+
+      return `<div class="post">
+                <h2>${artistName}</h2>
+                <p>Date: ${simplifiedDate} (${dayName})</p>
+                <p>Stage: ${stageName}</p>
+                <p>Genre: ${genreName}</p>
+              </div>`;
+    })
+    .join("");
 
     postContainer.innerHTML = postsHTML;
     
